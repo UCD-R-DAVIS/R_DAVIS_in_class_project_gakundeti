@@ -1,3 +1,3 @@
 Glorietta Kundeti
-Pronouns: NA
-Research INterest: EPidemiology
+she/her
+Epidemiology HIV
