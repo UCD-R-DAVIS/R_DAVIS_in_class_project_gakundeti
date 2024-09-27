@@ -1,3 +1,3 @@
 Glorietta Kundeti
 she/her
-Epidemiology HIV
+Epidemiology HIV/AIDS
