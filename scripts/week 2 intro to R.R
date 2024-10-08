@@ -119,10 +119,12 @@ weight_g[c(TRUE, TRUE, FALSE, FALSE, FALSE)]#only keeps the first two numbers an
 weight_g
 weight_g > 50 #identifies which numbers satisfy the inequality by true and false
 weight_g[weight_g > 50] #identifies the actual values that meet the inequality
-weight_g[weight_g > 50 | weight_g < 22]#pulls values that validate the inequality 
+weight_g[weight_g > 50 | weight_g < 22]#pulls values that validate the inequality
 
 #Symbols 
 #And = &
-animals %in% c("rat", "cat", "dog", "duck", "goat")#not what this is doing
+animals %in% c("rat", "cat", "dog", "duck", "goat")#This adds goats to animals list
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]#not sure what this is doing
-"four" > "five"#not sure why this is true
+"four" > "five" #it is looking at what is alphabetically later as the greater
+"four" >"one hundred"
+"4">"100"
