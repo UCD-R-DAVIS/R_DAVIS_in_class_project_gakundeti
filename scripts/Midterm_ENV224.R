@@ -7,9 +7,18 @@ str(running)
 #Filter out non-running activities 
 running<-filter(lap, sport %in% "running")
 
+#alternate way
+running<-filter(lab, sport == 'running') %>%
+mutate(case_when(minutes_per_mile < 6 ~ 'fast', 
+                   minutes_per_mile >=6 & minutes_per_mile <= 6 ~ 'medium', 
+                   minutes_per_mile > ~ 'slow')) %>%
+  mutate(form= ifelse(year==2024, "new", "old"))%>%
+  group_by(pace,form)%>%
+  summarize (mean_steps = mean(steps_per_minute)) %>%
+  pivot_wider(id_cols = "form", names_form = "pace", values_from = "mean_steps")
 
 #Remove minute-per-mile less than 5 and greater than 10
-running<-filter(running, minutes_per_mile <10 & minutes_per_mile > 5 & total_elapsed_time_s > 60)
+running<-filter(running, minutes_per_mile <=10 & minutes_per_mile >= 5 & total_elapsed_time_s > 60)
 
 #Create new categorical variable that categorizes minutes_per_mile in fast, medium, and slow
 running$pace <- ifelse(running$minutes_per_mile < 6, 'Fast', 
